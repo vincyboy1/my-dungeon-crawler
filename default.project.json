@@ -1,0 +1,14 @@
+{
+  "name": "DungeonCrawler",
+  "servePort": 34865,
+  "ignore": ["\\.git$", "node_modules"],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": { "$path": "src/ReplicatedStorage" },
+    "ServerScriptService": { "$path": "src/ServerScriptService" },
+    "StarterGui":          { "$path": "src/StarterGui" },
+    "StarterPlayer": {
+      "StarterPlayerScripts": { "$path": "src/StarterPlayer/StarterPlayerScripts" }
+    }
+  }
+}

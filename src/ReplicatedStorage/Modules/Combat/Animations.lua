@@ -1,0 +1,56 @@
+-- ReplicatedStorage/Modules/Combat/AnimationConfig.lua
+local Animations = {
+	Warrior = {
+		idle    = "rbxassetid://107344078879940",
+		walk    = "rbxassetid://96407183021647",
+		run     = "rbxassetid://111962349269503",
+		attack1 = "rbxassetid://99178485636585",
+		attack2 = "rbxassetid://125567126407201",
+		attack3 = "rbxassetid://71424313052101",
+		attack4 = "rbxassetid://95453599877523",
+		attack5 = "rbxassetid://110356116523638",
+	},
+	Mage = {
+		idle          = "rbxassetid://107344078879940",
+		walk          = "rbxassetid://136916269608125",
+		run           = "rbxassetid://98245417409911",
+		attack1       = "rbxassetid://131763822405863",
+		meleeAttack1  = "rbxassetid://129642224591397",
+		meleeAttack2  = "rbxassetid://76336895401504",
+		meleeAttack3  = "rbxassetid://112135095004045",
+		reload        = "rbxassetid://ReloadMage",
+	},
+	Striker = {
+		idle    = "rbxassetid://83017201124522",
+		walk    = "rbxassetid://74054586205846",
+		run     = "rbxassetid://136513806669779",
+		attack1 = "rbxassetid://103726125377932",
+		attack2 = "rbxassetid://108236958236612",
+		attack3 = "rbxassetid://113848475085180",
+		attack4 = "rbxassetid://111807851174831",
+	},
+	Ranger = {
+		idle          = "rbxassetid://101028577157385",
+		walk          = "rbxassetid://99430994023361",
+		run           = "rbxassetid://123363291241168",
+		draw          = "rbxassetid://86294995788388",
+		hold          = "rbxassetid://123318622750336",
+		fire          = "rbxassetid://127705762951974",
+		meleeAttack1  = "rbxassetid://114179636964721",
+		meleeAttack2  = "rbxassetid://91857118629799",
+	},
+	Support = {
+		idle          = "rbxassetid://107344078879940",
+		walk          = "rbxassetid://136916269608125",
+		run           = "rbxassetid://98245417409911",
+		attack1       = "rbxassetid://103726125377932",
+		attack2       = "rbxassetid://108236958236612",
+		attack3       = "rbxassetid://113848475085180",
+		attack4       = "rbxassetid://111807851174831",
+		attack5       = "rbxassetid://85630680850939",
+		specialAttack = "rbxassetid://SpecialSupportM2",
+		reload        = "rbxassetid://ReloadSupport",
+	},
+}
+
+return Animations
