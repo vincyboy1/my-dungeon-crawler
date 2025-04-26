@@ -1,7 +1,11 @@
 {
+  "$schema": "https://rojo.space/schema.json",
   "name": "DungeonCrawler",
   "servePort": 34865,
-  "ignore": ["\\.git$", "node_modules"],
+  "globIgnorePaths": [
+    "**/.git/**",
+    "**/node_modules/**"
+  ],
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": { "$path": "src/ReplicatedStorage" },
