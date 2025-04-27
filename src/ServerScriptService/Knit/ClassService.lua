@@ -1,46 +1,50 @@
 -- src/ServerScriptService/Knit/ClassService.server.lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Knit = require(ReplicatedStorage.Knit.Knit)  -- load the KnitServer module
+local Knit = require(ReplicatedStorage.Knit.KnitServer)
 
 local ClassService = Knit.CreateService {
     Name = "ClassService",
-    Client = {}
+    Client = {
+        ClassSelected = Knit.CreateSignal()
+    }
 }
 
 function ClassService:KnitInit()
     print("[ClassService] :KnitInit")
+    -- load your single definitions module
+    local defs = require(ReplicatedStorage.SharedModules.ClassDefinitions)
+    self.classDefs = defs
 
-    -- grab your DataService via the static API
-    self.DataService = Knit.GetService("DataService")
-
-    -- load your class definitions module
-    local ok, defs = pcall(require, ReplicatedStorage.SharedModules.ClassDefinitions)
-    assert(ok and defs, "[ClassService] ❌ Failed to load ClassDefinitions.lua")
-    self.ClassDefs = defs
+    -- collect names
+    self.available = {}
+    for name,_ in pairs(defs) do
+        table.insert(self.available, name)
+    end
+    table.sort(self.available)
 end
 
 function ClassService:KnitStart()
     print("[ClassService] :KnitStart – found classes:")
-    local names = {}
-    for className in pairs(self.ClassDefs) do
-        table.insert(names, className)
+    for _,name in ipairs(self.available) do
+        print("   ", name)
     end
-    print("\t" .. table.concat(names, ", "))
 end
 
--- server‐side API
+-- called from client
 function ClassService:SelectClass(player, className)
-    if not self.ClassDefs[className] then
-        warn("[ClassService] Invalid class name:", className)
+    if not table.find(self.available, className) then
+        warn("[ClassService] invalid class:", className)
         return
     end
-    self.DataService:SetPlayerClass(player, className)
-    print(("[ClassService] %s selected %s"):format(player.Name, className))
-end
+    print("[ClassService] Player", player.Name, "selected class:", className)
 
--- expose to the client
-function ClassService.Client:SelectClass(player, className)
-    return ClassService.SelectClass(self, player, className)
+    -- record it in their profile
+    local dataService = self:GetService("DataService")
+    local profile = dataService:GetProfile(player)
+    profile.Data.SelectedClass = className
+
+    -- notify the client
+    self.Client.ClassSelected:Fire(player, className)
 end
 
 return ClassService
