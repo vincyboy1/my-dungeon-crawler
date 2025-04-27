@@ -110,7 +110,7 @@ KnitClient.Player = game:GetService("Players").LocalPlayer
 	pulled in via Wally instead of relying on Knit's Util folder, as this
 	folder only contains what is necessary for Knit to run in Wally mode.
 ]=]
-KnitClient.Util = (script.Parent :: Instance).Parent
+KnitClient.Util = script.Parent
 
 local Promise = require(KnitClient.Util.Promise)
 local Comm = require(KnitClient.Util.Comm)
