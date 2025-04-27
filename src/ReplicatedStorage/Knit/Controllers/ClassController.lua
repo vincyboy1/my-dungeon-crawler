@@ -1,7 +1,7 @@
--- src/ReplicatedStorage/Knit/Controllers/ClassController.lua
-local Players           = game:GetService("Players")
-local TextChatService   = game:GetService("TextChatService")
-local Knit              = require(script.Parent.Parent.Knit)
+-- src/ReplicatedStorage/Knit/Controllers/ClassController.client.lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Knit = require(ReplicatedStorage.Knit.KnitClient)
 
 local ClassController = Knit.CreateController { Name = "ClassController" }
 
@@ -10,21 +10,25 @@ function ClassController:KnitStart()
     local ClassService = Knit.GetService("ClassService")
     local player = Players.LocalPlayer
 
+    -- log every chat
     player.Chatted:Connect(function(msg)
-        self:_handleChat(msg, ClassService)
+        print("[ClassController] Got chat:", msg)
+        -- match "/class <classname>"
+        local chosen = msg:match("^/class%s+(.+)$")
+        print("[ClassController] pattern result:", chosen)
+        if chosen then
+            print("[ClassController] Requesting class:", chosen)
+            ClassService:SelectClass(chosen)
+        end
     end)
 
-    TextChatService.OnIncomingMessage:Connect(function(message)
-        self:_handleChat(message.Text, ClassService)
+    -- listen for confirmation
+    ClassService.ClassSelected:Connect(function(plr, className)
+        if plr == player then
+            print("[ClassController] Class selection confirmed:", className)
+            -- TODO: apply client-side effects (e.g. equip gear, update UI)
+        end
     end)
-end
-
-function ClassController:_handleChat(msg, ClassService)
-    local chosen = msg:match("^/class%s+(.+)$")
-    if chosen then
-        print("[ClassController] Requesting class:", chosen)
-        ClassService:SelectClass(chosen)
-    end
 end
 
 return ClassController
