@@ -1,0 +1,51 @@
+﻿-- Base class: Ranger
+return {
+    BasicAttack = {
+        Name        = 'BasicAttack',
+        Cooldown    = 0.3,
+        Range       = 50,
+        Damage      = 12,
+        AnimationId = 0,
+        Visual      = 'ArrowTrail',
+    },
+    PiercingShot = {
+        Name          = 'PiercingShot',
+        Cooldown      = 10,
+        ManaCost      = 35,
+        Range         = 60,
+        BaseDamage    = 16,
+        PierceCount   = 3,
+        PierceFalloff = 0.15,
+        AnimationId   = 0,
+        Visual        = 'RadiantArrow',
+    },
+    SurvivalInstinct = {
+        Name    = 'SurvivalInstinct',
+        Type    = 'Passive',
+        Effects = {
+            {Stat='DetectionRange', Value=0.05},
+            {Stat='PhysicalDamage',  Value=0.05},
+        },
+    },
+    EaglesSight = {
+        Name            = 'EaglesSight',
+        Cooldown        = 16,
+        ManaCost        = 35,
+        Duration        = 8,
+        DamageBuffPct   = 0.20,
+        CooldownReductionPct = 0.50,
+        AnimationId     = 0,
+        Visual          = 'GoldenAura',
+    },
+    SpiritBear = {
+        Name         = 'SpiritBear',
+        Toggle       = \True,
+        ManaCostPerSec = 0.04,
+        ShieldPercentMaxHP = 0.60,
+        MeleeDamageBuffPct = 0.20,
+        RangedDamageReductionPct = 0.50,
+        Cooldown     = 40,
+        AnimationId  = 0,
+        Visual       = 'BearSpirit',
+    },
+}
