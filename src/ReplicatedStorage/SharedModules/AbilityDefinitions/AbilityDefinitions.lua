@@ -1,9 +1,10 @@
-﻿-- AbilityDefinitions.lua
--- Automatically generated index of class ability modules
+-- src/ReplicatedStorage/SharedModules/AbilityDefinitions/AbilityDefinitions.lua
+-- maps each archetype folder’s Base.lua
+
 return {
-    Warrior = require(script:WaitForChild("Warrior").Base),
-    Ranger  = require(script:WaitForChild("Ranger").Base),
-    Mage    = require(script:WaitForChild("Mage").Base),
-    Support = require(script:WaitForChild("Support").Base),
-    Striker = require(script:WaitForChild("Striker").Base),
+    Warrior = require(script.Parent.Warrior.Base),
+    Ranger  = require(script.Parent.Ranger.Base),
+    Mage    = require(script.Parent.Mage.Base),
+    Support = require(script.Parent.Support.Base),
+    Striker = require(script.Parent.Striker.Base),
 }

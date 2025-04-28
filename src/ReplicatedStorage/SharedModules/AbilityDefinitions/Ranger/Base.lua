@@ -1,4 +1,4 @@
-﻿-- Base class: Ranger
+-- Base class: Ranger
 return {
     BasicAttack = {
         Name        = 'BasicAttack',
@@ -39,7 +39,7 @@ return {
     },
     SpiritBear = {
         Name         = 'SpiritBear',
-        Toggle       = \True,
+        Toggle       = true,
         ManaCostPerSec = 0.04,
         ShieldPercentMaxHP = 0.60,
         MeleeDamageBuffPct = 0.20,

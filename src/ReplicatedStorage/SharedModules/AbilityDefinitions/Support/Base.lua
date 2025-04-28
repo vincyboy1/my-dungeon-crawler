@@ -1,4 +1,4 @@
-﻿-- Base class: Support
+-- Base class: Support
 return {
     LaserBeam = {
         Name        = 'LaserBeam',
@@ -15,7 +15,7 @@ return {
         Cooldown    = 8,
         ManaCost    = 25,
         Radius      = 6,
-        Knockback   = \True,
+        Knockback   = true,
         AnimationId = 0,
         Visual      = 'ConcussivePulse',
     },
@@ -53,7 +53,7 @@ return {
         ManaCost     = 35,
         Duration     = 6,
         DamageReductionPct = 0.08,
-        JumpOnKill   = \True,
+        JumpOnKill   = true,
         AnimationId  = 0,
         Visual       = 'EnergyTether',
     },

@@ -1,4 +1,4 @@
-﻿-- Base class: Striker
+-- Base class: Striker
 return {
     BrutalUppercut = {
         Name        = 'BrutalUppercut',

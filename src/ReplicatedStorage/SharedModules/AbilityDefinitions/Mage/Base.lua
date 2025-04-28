@@ -1,4 +1,4 @@
-﻿-- Base class: Mage
+-- Base class: Mage
 return {
     ArcaneBolt = {
         Name        = 'ArcaneBolt',

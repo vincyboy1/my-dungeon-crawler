@@ -1,4 +1,4 @@
-﻿-- Base class: Warrior
+-- Base class: Warrior
 return {
     Slash = {
         Name        = 'Slash',
@@ -13,7 +13,7 @@ return {
         Cooldown      = 10,
         Range         = 5,
         Damage        = 35,
-        Knockdown     = \True,
+        Knockdown     = true,
         KnockdownTime = 0.75,
         DamageReduction         = 0.20,
         DamageReductionDuration = 2,
@@ -43,7 +43,7 @@ return {
         Name          = 'VoidInfusion',
         Cooldown      = 18,
         Damage        = 40,
-        ShieldPerEnemyHit = \True,
+        ShieldPerEnemyHit = true,
         AnimationId   = 0,
         Visual        = 'VoidVortex',
     },
@@ -51,7 +51,7 @@ return {
         Name             = 'UnyieldingGuard',
         Cooldown         = 25,
         Range            = 8,
-        Taunt            = \True,
+        Taunt            = true,
         TauntDuration    = 3,
         EnemyDRReduction = 0.05,
         ShieldPercentMaxHP = 0.15,
